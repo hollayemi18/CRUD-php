@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .box{
+            height: 100vh;
+            width: 100%;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content:center ;
+            
+        }
+        .coin{
+            width: 400px;
+            max-width: 90%;
+            position: relative;
+        }
+        .coin input{
+            width: 100%;
+            height: 40px;
+            outline: none;
+            border: 1px solid #ccc;
+            color: #fff;
+            background: transparent;
+            border-radius: 20px;
+        }
+        ::placeholder{
+            font-size: large;
+            text-align: center;
+        }
+        p{
+            color: #fff ;
+            display: none;
+            position: absolute;
+        }
+    </style>
+  <div class="box">
+       <div class="coin">
+           <input type="password" name="" id="pass" placeholder="password">
+           <p id="text">password is <span id="mess"></span></p>
+       </div>
+  </div>
+<script>
+    var pass = document.getElementById('pass');
+    var text  = document.getElementById('text');
+    var mess = document.getElementById('mess');
+    pass.addEventListener('input', ()=>{
+        if(pass.value.length > 0 ){
+            text.style.display = "block";
+            mess.innerHTML = "weak";
+            pass.style.borderColor = "red";
+            text.style.color = "red";
+        }
+         if (pass.value.length >= 4) {
+            mess.innerHTML = "medium";
+            pass.style.borderColor = "yellow";
+            text.style.color = "yellow";
+        }
+         if (pass.value.length >= 8) {
+            mess.innerHTML = "strong";
+            pass.style.borderColor = "green";
+            text.style.color = "green";
+        }
+    })
+
+
+
+</script>
+</body>
+
+</html>
